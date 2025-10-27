@@ -1,1 +1,1377 @@
-<h1>hola o clock</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Título actualizado -->
+  <title>Reloj ICO Pasión | Tu Compañero Tecnológico 24/7</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dipv76dpn/image/upload/v1761604853/1761602682467-019a27b3-3c1e-7564-bcd7-04283d640684_xkn4a1.png">
+  <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/dipv76dpn/image/upload/v1761604853/1761602682467-019a27b3-3c1e-7564-bcd7-04283d640684_xkn4a1.png">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dipv76dpn/image/upload/v1761604853/1761602682467-019a27b3-3c1e-7564-bcd7-04283d640684_xkn4a1.png">
+  
+  <!-- Meta tags para SEO -->
+  <meta name="description" content="Reloj ICO Pasión - Reloj tecnológico interactivo con 60 consejos por hora sobre programación, diseño, herramientas y redes sociales. Creado por Jhorman Jesús Castellanos Morales.">
+  <meta name="keywords" content="reloj ico pasión, reloj tecnológico, consejos programación, tips desarrollo, reloj interactivo">
+  <meta name="author" content="Jhorman Jesús Castellanos Morales">
+  <meta property="og:title" content="Reloj ICO Pasión">
+  <meta property="og:description" content="Tu compañero tecnológico 24/7 con consejos de programación">
+  <meta property="og:image" content="https://res.cloudinary.com/dipv76dpn/image/upload/v1761604853/1761602682467-019a27b3-3c1e-7564-bcd7-04283d640684_xkn4a1.png">
+  
+  <!-- Google Fonts para título llamativo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Russo+One&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Variables para modo claro (por defecto) */
+      --bg-gradient-start: #e0e0e0;
+      --bg-gradient-end: #b5b5b5;
+      --control-bg: rgba(255, 255, 255, 0.9);
+      --control-text: #333;
+      --marco-gradient-1: #ffffff;
+      --marco-gradient-2: #dcdcdc;
+      --marco-border: #f9f9f9;
+      --reloj-gradient-start: #1c1c1c;
+      --reloj-gradient-end: #000000;
+      --marca-color: #777;
+      --marca-grande-color: #ccc;
+      --numero-color: #ccc;
+      --panel-bg: rgba(0, 0, 0, 0.85);
+      --panel-text: #ffffff;
+      --footer-gradient-start: #1c1c1c;
+      --footer-gradient-end: #2c2c2c;
+      --footer-text: #ffffff;
+      --select-bg: white;
+      --select-border: #ccc;
+      --btn-bg: #4CAF50;
+      --btn-hover: #45a049;
+      --btn-text: white;
+      --header-bg: rgba(255, 255, 255, 0.95);
+      --header-text: #333;
+    }
+
+    /* Modo oscuro */
+    body.dark-mode {
+      --bg-gradient-start: #1a1a1a;
+      --bg-gradient-end: #0a0a0a;
+      --control-bg: rgba(30, 30, 30, 0.95);
+      --control-text: #e0e0e0;
+      --marco-gradient-1: #2a2a2a;
+      --marco-gradient-2: #1a1a1a;
+      --marco-border: #333333;
+      --reloj-gradient-start: #0a0a0a;
+      --reloj-gradient-end: #000000;
+      --marca-color: #555;
+      --marca-grande-color: #888;
+      --numero-color: #aaa;
+      --panel-bg: rgba(20, 20, 20, 0.95);
+      --panel-text: #e0e0e0;
+      --footer-gradient-start: #0a0a0a;
+      --footer-gradient-end: #1a1a1a;
+      --footer-text: #e0e0e0;
+      --select-bg: #2a2a2a;
+      --select-border: #555;
+      --btn-bg: #45a049;
+      --btn-hover: #4CAF50;
+      --btn-text: white;
+      --header-bg: rgba(20, 20, 20, 0.95);
+      --header-text: #e0e0e0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at center, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      padding-top: 100px;
+      padding-bottom: 80px;
+      transition: background 0.3s ease;
+    }
+
+    /* Header con logo y título */
+    .header-principal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      z-index: 200;
+      padding: 15px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .header-contenido {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+      50% { 
+        box-shadow: 0 4px 20px rgba(76, 175, 80, 0.5);
+      }
+    }
+
+    .titulo-principal {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      background: linear-gradient(45deg, #4CAF50, #2196F3, #f44336);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientMove 3s ease infinite;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .subtitulo {
+      font-family: 'Russo One', sans-serif;
+      font-size: 12px;
+      color: var(--header-text);
+      opacity: 0.8;
+      text-align: center;
+      margin-top: 5px;
+      letter-spacing: 2px;
+    }
+
+    /* Ajustes para móviles del header */
+    @media (max-width: 480px) {
+      body {
+        padding-top: 80px;
+      }
+
+      .header-principal {
+        padding: 10px 15px;
+      }
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .titulo-principal {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+
+      .subtitulo {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .titulo-principal {
+        font-size: 20px;
+      }
+
+      .logo-img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .subtitulo {
+        display: none;
+      }
+    }
+
+    .controles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+      background: var(--control-bg);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 900px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .control-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .selector {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .selector label {
+      font-weight: bold;
+      color: var(--control-text);
+      font-size: 14px;
+    }
+
+    .selector select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid var(--select-border);
+      background: var(--select-bg);
+      color: var(--control-text);
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .selector select:hover {
+      border-color: var(--btn-bg);
+    }
+
+    /* Botones de control */
+    .btn-control {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .btn-control:hover {
+      background: var(--btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .btn-control i {
+      font-size: 16px;
+    }
+
+    .botones-grupo {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Marco exterior */
+    .marco {
+      width: 480px;
+      height: 480px;
+      background: linear-gradient(145deg, var(--marco-gradient-1), var(--marco-gradient-2));
+      border-radius: 50%;
+      border: 10px solid var(--marco-border);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2), inset 0 0 10px rgba(255,255,255,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    /* Círculo del reloj */
+    .reloj {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, var(--reloj-gradient-start) 0%, var(--reloj-gradient-end) 100%);
+      box-shadow: inset 0 0 15px rgba(255,255,255,0.1), 0 0 25px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+    }
+
+    .marcas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .marca {
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      background: var(--marca-color);
+      top: 10px;
+      left: 50%;
+      transform-origin: center 190px;
+      transition: background 0.3s ease;
+    }
+
+    .marca-grande {
+      width: 3px;
+      height: 25px;
+      background: var(--marca-grande-color);
+    }
+
+    .manecilla {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      transform: translateX(-50%);
+      border-radius: 4px;
+      transition: transform 0.1s cubic-bezier(0.4,2.3,0.3,1);
+      z-index: 10;
+    }
+
+    .hora { width: 8px; height: 80px; background: #4CAF50; box-shadow: 0 0 5px #4CAF50; }
+    .minuto { width: 5px; height: 120px; background: #2196F3; box-shadow: 0 0 5px #2196F3; }
+    .segundo { width: 2px; height: 150px; background: #f44336; box-shadow: 0 0 5px #f44336; }
+
+    .centro {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 18px; height: 18px;
+      background: radial-gradient(circle, #fff 0%, #ccc 100%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 30;
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+
+    .digital-container {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .decoracion {
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    }
+
+    #digital {
+      color: #00ffcc;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 8px rgba(0,255,204,0.7);
+      background: rgba(0,0,0,0.6);
+      padding: 8px 15px;
+      border-radius: 8px;
+      border: 1px solid #00ffcc;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .icono {
+      position: absolute;
+      font-size: 22px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      text-shadow: 0 0 5px rgba(255,255,255,0.3);
+      z-index: 5;
+      transition: all 0.3s ease;
+    }
+
+    .numero {
+      position: absolute;
+      color: var(--numero-color);
+      font-size: 16px;
+      font-weight: bold;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      transition: color 0.3s ease;
+    }
+
+    /* Panel informativo */
+    .panel-info {
+      width: 480px;
+      background: var(--panel-bg);
+      border-radius: 15px;
+      padding: 20px;
+      color: var(--panel-text);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .panel-icono {
+      font-size: 32px;
+    }
+
+    .panel-titulo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .panel-contenido {
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .dato-item {
+      margin-bottom: 10px;
+      padding: 8px 0;
+      border-bottom: 1px dotted rgba(255,255,255,0.1);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .dato-titulo {
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 5px;
+    }
+
+    .dato-descripcion {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .proximo-dato {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    .minuto-actual {
+      text-align: center;
+      margin-top: 5px;
+      font-size: 12px;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    /* Indicador de formato de hora */
+    .formato-indicador {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #4CAF50;
+      background: rgba(0,0,0,0.5);
+      padding: 2px 6px;
+      border-radius: 3px;
+      z-index: 5;
+    }
+
+    /* Media queries mejoradas para dispositivos móviles */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+        padding-top: 80px;
+        padding-bottom: 70px;
+      }
+
+      .controles {
+        gap: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .control-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .selector {
+        min-width: 100%;
+      }
+
+      .selector select {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .botones-grupo {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-control {
+        flex: 1;
+        justify-content: center;
+        min-width: 140px;
+      }
+
+      .marco {
+        width: 320px;
+        height: 320px;
+        border: 7px solid var(--marco-border);
+      }
+
+      .reloj {
+        width: 270px;
+        height: 270px;
+      }
+
+      .marca {
+        transform-origin: center 128px !important;
+        height: 10px !important;
+        top: 7px !important;
+      }
+
+      .marca-grande {
+        height: 18px !important;
+      }
+
+      .manecilla {
+        bottom: 50%;
+        left: 50%;
+        transform-origin: 50% 100% !important;
+      }
+
+      .hora { 
+        width: 6px; 
+        height: 54px !important;
+      }
+      
+      .minuto { 
+        width: 4px; 
+        height: 81px !important;
+      }
+      
+      .segundo { 
+        width: 2px; 
+        height: 101px !important;
+      }
+
+      .centro {
+        width: 14px;
+        height: 14px;
+      }
+
+      .icono {
+        font-size: 16px !important;
+      }
+
+      .numero {
+        font-size: 12px !important;
+      }
+
+      .digital-container {
+        top: 58% !important;
+        gap: 3px;
+      }
+
+      .formato-indicador {
+        top: 32% !important;
+      }
+
+      .decoracion {
+        font-size: 14px !important;
+      }
+
+      #digital {
+        font-size: 12px !important;
+        padding: 4px 8px !important;
+        min-width: 70px !important;
+      }
+
+      .panel-info {
+        width: 100%;
+        max-width: 320px;
+        padding: 15px;
+      }
+
+      .panel-icono {
+        font-size: 24px;
+      }
+
+      .panel-titulo {
+        font-size: 18px;
+      }
+
+      .panel-contenido {
+        min-height: 80px;
+      }
+
+      .dato-descripcion {
+        font-size: 13px;
+      }
+
+      .footer {
+        font-size: 11px;
+        padding: 15px 10px;
+      }
+
+      .footer-nombre {
+        font-size: 12px;
+      }
+    }
+
+    /* Ajustes específicos para 360px */
+    @media (max-width: 360px) {
+      .marco {
+        width: 280px !important;
+        height: 280px !important;
+        border: 5px solid var(--marco-border);
+      }
+
+      .reloj {
+        width: 240px !important;
+        height: 240px !important;
+      }
+
+      .marca {
+        transform-origin: center 113px !important;
+        height: 8px !important;
+        top: 5px !important;
+        width: 2px;
+      }
+
+      .marca-grande {
+        height: 15px !important;
+        width: 2px;
+      }
+
+      .hora { 
+        width: 5px !important;
+        height: 48px !important;
+      }
+      
+      .minuto { 
+        width: 3px !important;
+        height: 72px !important;
+      }
+      
+      .segundo { 
+        width: 1.5px !important;
+        height: 90px !important;
+      }
+
+      .centro {
+        width: 12px !important;
+        height: 12px !important;
+      }
+
+      .digital-container {
+        top: 55% !important;
+        gap: 2px;
+      }
+
+      .formato-indicador {
+        top: 30% !important;
+      }
+
+      .decoracion {
+        font-size: 12px !important;
+        display: none;
+      }
+
+      #digital {
+        font-size: 10px !important;
+        padding: 2px 5px !important;
+        min-width: 55px !important;
+        border-radius: 4px;
+        background: rgba(0,0,0,0.7);
+      }
+
+      .icono {
+        font-size: 14px !important;
+      }
+
+      .numero {
+        font-size: 10px !important;
+      }
+
+      .panel-info {
+        max-width: 280px;
+        padding: 12px;
+      }
+
+      .panel-icono {
+        font-size: 20px;
+      }
+
+      .panel-titulo {
+        font-size: 16px;
+      }
+
+      .dato-titulo {
+        font-size: 13px;
+      }
+
+      .dato-descripcion {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .btn-control {
+        font-size: 12px;
+        padding: 8px 15px;
+      }
+
+      .btn-control i {
+        font-size: 14px;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--footer-gradient-start) 0%, var(--footer-gradient-end) 100%);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+      border-top: 2px solid #4CAF50;
+      z-index: 100;
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer-nombre {
+      font-size: 14px;
+      font-weight: bold;
+      color: #4CAF50;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-year {
+      color: #aaa;
+    }
+
+    .footer-icon {
+      color: #f44336;
+      margin: 0 5px;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Estilos visuales */
+    .estilo-normal .reloj {
+      background: radial-gradient(circle at center, var(--reloj-gradient-start) 0%, var(--reloj-gradient-end) 100%);
+    }
+
+    .estilo-pixel .reloj {
+      background: var(--reloj-gradient-end);
+      image-rendering: pixelated;
+    }
+
+    .estilo-pixel .manecilla {
+      border-radius: 0;
+    }
+
+    .estilo-pixel .icono {
+      filter: contrast(2) brightness(1.5);
+    }
+
+    .estilo-neon .reloj {
+      background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+    }
+
+    .estilo-neon .manecilla {
+      box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    }
+
+    .estilo-neon .icono {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+
+    .estilo-pintura .reloj {
+      background: radial-gradient(circle at center, #2a2a2a 0%, #1a1a1a 100%);
+    }
+
+    .estilo-pintura .manecilla {
+      border-radius: 10px;
+    }
+
+    .estilo-pintura .icono {
+      filter: sepia(0.5) hue-rotate(15deg) saturate(1.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header con logo y título -->
+  <header class="header-principal">
+    <div class="header-contenido">
+      <a href="#" class="logo-container">
+        <img src="https://res.cloudinary.com/dipv76dpn/image/upload/v1761604853/1761602682467-019a27b3-3c1e-7564-bcd7-04283d640684_xkn4a1.png" 
+             alt="Reloj ICO Pasión Logo" 
+             class="logo-img">
+        <div>
+          <h1 class="titulo-principal">Reloj ICO Pasión</h1>
+          <p class="subtitulo">Tu Compañero Tecnológico 24/7</p>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <div class="controles">
+    <div class="control-group">
+      <div class="selector">
+        <label for="categoria">Categoría de Logos:</label>
+        <select id="categoria">
+          <option value="programacion">Programación</option>
+          <option value="diseno">Diseño Gráfico</option>
+          <option value="herramientas">Herramientas</option>
+          <option value="redes">Redes Sociales</option>
+        </select>
+      </div>
+      <div class="selector">
+        <label for="estilo">Estilo Visual:</label>
+        <select id="estilo">
+          <option value="normal">Normal</option>
+          <option value="pixel">Pixel</option>
+          <option value="neon">Neón</option>
+          <option value="pintura">Pintura</option>
+        </select>
+      </div>
+      <div class="botones-grupo">
+        <button class="btn-control" id="btnTema" onclick="toggleTheme()">
+          <i class="fas fa-moon" id="themeIcon"></i>
+          <span id="themeText">Modo Oscuro</span>
+        </button>
+        <button class="btn-control" id="btnFormato" onclick="toggleTimeFormat()">
+          <i class="fas fa-clock"></i>
+          <span id="formatText">24 Horas</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="marco">
+    <div class="reloj" id="reloj">
+      <div class="marcas" id="marcas"></div>
+      <div class="manecilla hora" id="hora"></div>
+      <div class="manecilla minuto" id="minuto"></div>
+      <div class="manecilla segundo" id="segundo"></div>
+      <div class="centro"></div>
+      <div class="formato-indicador" id="formatoIndicador" style="display: none;"></div>
+      <div class="digital-container">
+        <span class="decoracion">&lt;</span>
+        <div id="digital">00:00:00</div>
+        <span class="decoracion">&gt;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel informativo -->
+  <div class="panel-info" id="panelInfo">
+    <div class="panel-header">
+      <i class="panel-icono" id="panelIcono"></i>
+      <div class="panel-titulo" id="panelTitulo">Información</div>
+    </div>
+    <div class="panel-contenido" id="panelContenido">
+      <div class="dato-item">
+        <div class="dato-titulo">Bienvenido a Reloj ICO Pasión</div>
+        <div class="dato-descripcion">El panel mostrará información sobre la tecnología en la posición de las 12 en punto.</div>
+      </div>
+    </div>
+    <div class="minuto-actual" id="minutoActual">Minuto: 0</div>
+    <div class="proximo-dato" id="proximoDato"></div>
+  </div>
+
+  <!-- Footer con derechos reservados -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div>
+        <span class="footer-nombre">Jhorman Jesús Castellanos Morales</span>
+      </div>
+      <div>
+        © <span class="footer-year"></span> Todos los derechos reservados 
+        <i class="fas fa-heart footer-icon"></i>
+        Hecho con pasión
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Establecer el año actual en el footer
+    document.querySelector('.footer-year').textContent = new Date().getFullYear();
+
+    // Variables globales para tema y formato
+    let isDarkMode = false;
+    let is24HourFormat = false;
+
+    // Función para cambiar tema
+    function toggleTheme() {
+      isDarkMode = !isDarkMode;
+      const body = document.body;
+      const themeIcon = document.getElementById('themeIcon');
+      const themeText = document.getElementById('themeText');
+      
+      if (isDarkMode) {
+        body.classList.add('dark-mode');
+        themeIcon.className = 'fas fa-sun';
+        themeText.textContent = 'Modo Claro';
+      } else {
+        body.classList.remove('dark-mode');
+        themeIcon.className = 'fas fa-moon';
+        themeText.textContent = 'Modo Oscuro';
+      }
+      
+      // Guardar preferencia en localStorage
+      localStorage.setItem('darkMode', isDarkMode);
+    }
+
+    // Función para cambiar formato de hora
+    function toggleTimeFormat() {
+      is24HourFormat = !is24HourFormat;
+      const formatText = document.getElementById('formatText');
+      const formatoIndicador = document.getElementById('formatoIndicador');
+      
+      if (is24HourFormat) {
+        formatText.textContent = '12 Horas';
+        formatoIndicador.style.display = 'block';
+        formatoIndicador.textContent = '24H';
+      } else {
+        formatText.textContent = '24 Horas';
+        formatoIndicador.style.display = 'none';
+      }
+      
+      // Guardar preferencia en localStorage
+      localStorage.setItem('24HourFormat', is24HourFormat);
+      
+      // Actualizar inmediatamente el reloj
+      actualizarReloj();
+    }
+
+    // Cargar preferencias guardadas
+    function cargarPreferencias() {
+      // Cargar tema
+      const savedDarkMode = localStorage.getItem('darkMode');
+      if (savedDarkMode === 'true') {
+        isDarkMode = false; // Se invierte porque toggleTheme lo volverá a invertir
+        toggleTheme();
+      }
+      
+      // Cargar formato de hora
+      const saved24Hour = localStorage.getItem('24HourFormat');
+      if (saved24Hour === 'true') {
+        is24HourFormat = false; // Se invierte porque toggleTimeFormat lo volverá a invertir
+        toggleTimeFormat();
+      }
+    }
+
+    // Función para generar 60 consejos para una tecnología
+    function generarConsejos(nombreTecnologia) {
+      const consejos = [];
+      
+      const consejosGenerales = [
+        `Aprende los fundamentos de ${nombreTecnologia} antes de pasar a conceptos avanzados.`,
+        `Practica regularmente con ${nombreTecnologia} para mejorar tus habilidades.`,
+        `Únete a comunidades en línea relacionadas con ${nombreTecnologia} para aprender de otros.`,
+        `Crea proyectos personales con ${nombreTecnologia} para aplicar lo que aprendes.`,
+        `Mantente actualizado con las últimas tendencias en ${nombreTecnologia}.`,
+        `Documenta tu código o trabajo en ${nombreTecnologia} para referencia futura.`,
+        `Aprende de tus errores al trabajar con ${nombreTecnologia} - son oportunidades de crecimiento.`,
+        `Experimenta con diferentes enfoques al usar ${nombreTecnologia}.`,
+        `Comparte tu conocimiento sobre ${nombreTecnologia} con otros - enseñar refuerza el aprendizaje.`,
+        `Establece metas realistas para tu progreso con ${nombreTecnologia}.`,
+        `Busca mentores o personas experimentadas en ${nombreTecnologia}.`,
+        `Participa en hackathons o desafíos relacionados con ${nombreTecnologia}.`,
+        `Lee el código fuente o ejemplos de ${nombreTecnologia} para entender mejores prácticas.`,
+        `Aprende a depurar eficientemente en ${nombreTecnologia}.`,
+        `Optimiza tu flujo de trabajo con ${nombreTecnologia}.`,
+        `Explora las herramientas complementarias que funcionan bien con ${nombreTecnologia}.`,
+        `Aprende los patrones de diseño comunes en ${nombreTecnologia}.`,
+        `Estudia casos de éxito que utilizan ${nombreTecnologia}.`,
+        `Practica la refactorización en tus proyectos de ${nombreTecnologia}.`,
+        `Aprende sobre seguridad al usar ${nombreTecnologia}.`,
+        `Explora las diferentes especializaciones dentro de ${nombreTecnologia}.`,
+        `Crea un portafolio con tus trabajos en ${nombreTecnologia}.`,
+        `Aprende a colaborar efectivamente en proyectos de ${nombreTecnologia}.`,
+        `Estudia la historia y evolución de ${nombreTecnologia}.`,
+        `Experimenta con las características menos conocidas de ${nombreTecnologia}.`,
+        `Aprende a escribir pruebas para tu código en ${nombreTecnologia}.`,
+        `Explora cómo ${nombreTecnologia} se integra con otras tecnologías.`,
+        `Practica la resolución de problemas específicos con ${nombreTecnologia}.`,
+        `Aprende a optimizar el rendimiento en ${nombreTecnologia}.`,
+        `Estudia las convenciones y estándares de la comunidad de ${nombreTecnologia}.`,
+        `Explora las diferentes metodologías de trabajo con ${nombreTecnologia}.`,
+        `Aprende a manejar errores y excepciones en ${nombreTecnologia}.`,
+        `Practica la creación de documentación clara para ${nombreTecnologia}.`,
+        `Estudia las mejores prácticas de accesibilidad en ${nombreTecnologia}.`,
+        `Explora las oportunidades laborales relacionadas con ${nombreTecnologia}.`,
+        `Aprende a escalar proyectos que utilizan ${nombreTecnologia}.`,
+        `Practica la gestión de versiones en tus proyectos de ${nombreTecnologia}.`,
+        `Estudia los principios de UX/UI aplicados a ${nombreTecnologia}.`,
+        `Explora las extensiones y plugins disponibles para ${nombreTecnologia}.`,
+        `Aprende sobre internacionalización y localización en ${nombreTecnologia}.`,
+        `Practica la creación de prototipos rápidos con ${nombreTecnologia}.`,
+        `Estudia las métricas y análisis relevantes para ${nombreTecnologia}.`,
+        `Explora las opciones de hosting y deployment para ${nombreTecnologia}.`,
+        `Aprende sobre las consideraciones legales al usar ${nombreTecnologia}.`,
+        `Practica la presentación efectiva de tus proyectos en ${nombreTecnologia}.`,
+        `Estudia las técnicas de testing avanzadas para ${nombreTecnologia}.`,
+        `Explora las APIs y servicios que se integran con ${nombreTecnologia}.`,
+        `Aprende sobre machine learning aplicado a ${nombreTecnologia}.`,
+        `Practica la creación de sistemas distribuidos con ${nombreTecnologia}.`,
+        `Estudia las técnicas de caching aplicadas a ${nombreTecnologia}.`,
+        `Explora el uso de ${nombreTecnologia} en dispositivos móviles.`,
+        `Aprende sobre realidad virtual/aumentada con ${nombreTecnologia}.`,
+        `Practica la creación de dashboards y visualizaciones con ${nombreTecnologia}.`,
+        `Estudia las técnicas de minería de datos aplicadas a ${nombreTecnologia}.`,
+        `Explora el uso de ${nombreTecnologia} en IoT (Internet de las cosas).`,
+        `Aprende sobre blockchain y su relación con ${nombreTecnologia}.`,
+        `Practica la creación de chatbots y asistentes virtuales con ${nombreTecnologia}.`,
+        `Estudia las técnicas de procesamiento de lenguaje natural con ${nombreTecnologia}.`,
+        `Explora el futuro y tendencias emergentes de ${nombreTecnologia}.`,
+        `Mantén un equilibrio entre aprender ${nombreTecnologia} y aplicarla en proyectos reales.`
+      ];
+      
+      for (let i = 0; i < 60; i++) {
+        consejos.push({
+          titulo: `Consejo ${i+1} para ${nombreTecnologia}`,
+          descripcion: consejosGenerales[i] || `Este es el consejo ${i+1} personalizado para ${nombreTecnologia}.`
+        });
+      }
+      
+      return consejos;
+    }
+
+    // Definición de categorías
+    const categorias = {
+      programacion: [
+        {class: "devicon-javascript-plain", color: "#f7df1e", nombre: "JavaScript", datos: generarConsejos("JavaScript")},
+        {class: "devicon-python-plain", color: "#3776ab", nombre: "Python", datos: generarConsejos("Python")},
+        {class: "devicon-java-plain", color: "#ed8b00", nombre: "Java", datos: generarConsejos("Java")},
+        {class: "devicon-csharp-plain", color: "#239120", nombre: "C#", datos: generarConsejos("C#")},
+        {class: "devicon-php-plain", color: "#777bb4", nombre: "PHP", datos: generarConsejos("PHP")},
+        {class: "devicon-html5-plain", color: "#e34f26", nombre: "HTML5", datos: generarConsejos("HTML5")},
+        {class: "devicon-css3-plain", color: "#1572b6", nombre: "CSS3", datos: generarConsejos("CSS3")},
+        {class: "devicon-mysql-plain", color: "#4479a1", nombre: "MySQL", datos: generarConsejos("MySQL")},
+        {class: "devicon-amazonwebservices-plain-wordmark", color: "#ff9900", nombre: "AWS", datos: generarConsejos("AWS")},
+        {class: "devicon-angularjs-plain", color: "#dd0031", nombre: "Angular", datos: generarConsejos("Angular")},
+        {class: "devicon-spring-plain", color: "#6db33f", nombre: "Spring", datos: generarConsejos("Spring")},
+        {class: "devicon-postgresql-plain", color: "#336791", nombre: "PostgreSQL", datos: generarConsejos("PostgreSQL")}
+      ],
+      diseno: [
+        {class: "devicon-photoshop-plain", color: "#001e36", nombre: "Photoshop", datos: generarConsejos("Photoshop")},
+        {class: "devicon-illustrator-plain", color: "#ff9a00", nombre: "Illustrator", datos: generarConsejos("Illustrator")},
+        {class: "devicon-figma-plain", color: "#f24e1e", nombre: "Figma", datos: generarConsejos("Figma")},
+        {class: "devicon-blender-plain", color: "#e87d0d", nombre: "Blender", datos: generarConsejos("Blender")},
+        {class: "devicon-canva-plain", color: "#00c4cc", nombre: "Canva", datos: generarConsejos("Canva")},
+        {class: "devicon-sketch-plain", color: "#fdad00", nombre: "Sketch", datos: generarConsejos("Sketch")},
+        {class: "fas fa-paint-brush", color: "#9c27b0", nombre: "Pintura Digital", datos: generarConsejos("Pintura Digital")},
+        {class: "fas fa-palette", color: "#4caf50", nombre: "Teoría del Color", datos: generarConsejos("Teoría del Color")},
+        {class: "fas fa-vector-square", color: "#2196f3", nombre: "Diseño Vectorial", datos: generarConsejos("Diseño Vectorial")},
+        {class: "fas fa-crop-alt", color: "#ff5722", nombre: "Composición", datos: generarConsejos("Composición")},
+        {class: "fas fa-eye-dropper", color: "#e91e63", nombre: "Selección de Color", datos: generarConsejos("Selección de Color")},
+        {class: "fas fa-font", color: "#795548", nombre: "Tipografía", datos: generarConsejos("Tipografía")}
+      ],
+      herramientas: [
+        {class: "devicon-git-plain", color: "#f05032", nombre: "Git", datos: generarConsejos("Git")},
+        {class: "devicon-docker-plain", color: "#2496ed", nombre: "Docker", datos: generarConsejos("Docker")},
+        {class: "devicon-vscode-plain", color: "#007acc", nombre: "VS Code", datos: generarConsejos("VS Code")},
+        {class: "devicon-slack-plain", color: "#4a154b", nombre: "Slack", datos: generarConsejos("Slack")},
+        {class: "devicon-trello-plain", color: "#0079bf", nombre: "Trello", datos: generarConsejos("Trello")},
+        {class: "devicon-jira-plain", color: "#0052cc", nombre: "Jira", datos: generarConsejos("Jira")},
+        {class: "fas fa-terminal", color: "#00bcd4", nombre: "Terminal/CLI", datos: generarConsejos("Terminal/CLI")},
+        {class: "fas fa-server", color: "#607d8b", nombre: "Servidores", datos: generarConsejos("Servidores")},
+        {class: "fas fa-database", color: "#ff9800", nombre: "Bases de Datos", datos: generarConsejos("Bases de Datos")},
+        {class: "fas fa-cloud", color: "#03a9f4", nombre: "Computación en la Nube", datos: generarConsejos("Computación en la Nube")},
+        {class: "fas fa-code-branch", color: "#8bc34a", nombre: "Control de Versiones", datos: generarConsejos("Control de Versiones")},
+        {class: "fas fa-bug", color: "#f44336", nombre: "Debugging", datos: generarConsejos("Debugging")}
+      ],
+      redes: [
+        {class: "devicon-facebook-plain", color: "#1877f2", nombre: "Facebook", datos: generarConsejos("Facebook")},
+        {class: "devicon-twitter-plain", color: "#1da1f2", nombre: "Twitter", datos: generarConsejos("Twitter")},
+        {class: "devicon-linkedin-plain", color: "#0a66c2", nombre: "LinkedIn", datos: generarConsejos("LinkedIn")},
+        {class: "fab fa-instagram", color: "#e4405f", nombre: "Instagram", datos: generarConsejos("Instagram")},
+        {class: "fab fa-youtube", color: "#ff0000", nombre: "YouTube", datos: generarConsejos("YouTube")},
+        {class: "devicon-github-plain", color: "#181717", nombre: "GitHub", datos: generarConsejos("GitHub")},
+        {class: "fab fa-discord", color: "#5865f2", nombre: "Discord", datos: generarConsejos("Discord")},
+        {class: "devicon-reddit-plain", color: "#ff4500", nombre: "Reddit", datos: generarConsejos("Reddit")},
+        {class: "fab fa-whatsapp", color: "#25d366", nombre: "WhatsApp", datos: generarConsejos("WhatsApp")},
+        {class: "fab fa-telegram", color: "#26a5e4", nombre: "Telegram", datos: generarConsejos("Telegram")},
+        {class: "fab fa-tiktok", color: "#000000", nombre: "TikTok", datos: generarConsejos("TikTok")},
+        {class: "fab fa-pinterest", color: "#bd081c", nombre: "Pinterest", datos: generarConsejos("Pinterest")}
+      ]
+    };
+
+    const reloj = document.getElementById('reloj');
+    const marcas = document.getElementById('marcas');
+    const digital = document.getElementById('digital');
+    const selectorCategoria = document.getElementById('categoria');
+    const selectorEstilo = document.getElementById('estilo');
+    
+    const panelIcono = document.getElementById('panelIcono');
+    const panelTitulo = document.getElementById('panelTitulo');
+    const panelContenido = document.getElementById('panelContenido');
+    const proximoDato = document.getElementById('proximoDato');
+    const minutoActual = document.getElementById('minutoActual');
+
+    let iconosActuales = [];
+    let numerosActuales = [];
+    let categoriaActual = 'programacion';
+    let datosActuales = [];
+    let indiceDatoActual = 0;
+    let intervaloDatos;
+
+    // Crear marcas
+    function crearMarcas() {
+      marcas.innerHTML = '';
+      const radioMarca = reloj.offsetWidth / 2 - 10;
+      
+      for (let i = 0; i < 60; i++) {
+        const marca = document.createElement('div');
+        marca.className = 'marca';
+        if (i % 5 === 0) marca.classList.add('marca-grande');
+        marca.style.transform = `translate(-50%) rotate(${i * 6}deg)`;
+        marca.style.transformOrigin = `center ${radioMarca}px`;
+        marcas.appendChild(marca);
+      }
+    }
+
+    // Función para crear logos
+    function crearLogos(categoria) {
+      categoriaActual = categoria;
+      
+      iconosActuales.forEach(icono => icono.remove());
+      numerosActuales.forEach(numero => numero.remove());
+      iconosActuales = [];
+      numerosActuales = [];
+
+      const tecnologias = categorias[categoria];
+      const centroX = reloj.offsetWidth / 2;
+      const centroY = reloj.offsetHeight / 2;
+      
+      const radioNumero = (reloj.offsetWidth / 2) * 0.775;
+      const radioIcono = (reloj.offsetWidth / 2) * 0.625;
+
+      tecnologias.forEach((tec, i) => {
+        const angulo = (i * 30 - 90) * Math.PI / 180;
+
+        const xNum = centroX + radioNumero * Math.cos(angulo);
+        const yNum = centroY + radioNumero * Math.sin(angulo);
+        const xIcon = centroX + radioIcono * Math.cos(angulo);
+        const yIcon = centroY + radioIcono * Math.sin(angulo);
+
+        const numero = document.createElement('div');
+        numero.className = 'numero';
+        numero.textContent = i === 0 ? 12 : i;
+        numero.style.left = `${xNum}px`;
+        numero.style.top = `${yNum}px`;
+        reloj.appendChild(numero);
+        numerosActuales.push(numero);
+
+        const icono = document.createElement('i');
+        icono.className = `icono ${tec.class}`;
+        icono.style.color = tec.color;
+        icono.style.left = `${xIcon}px`;
+        icono.style.top = `${yIcon}px`;
+        reloj.appendChild(icono);
+        iconosActuales.push(icono);
+      });
+      
+      actualizarPanelInformacion();
+    }
+
+    // Cambiar estilo visual
+    function cambiarEstilo(estilo) {
+      reloj.classList.remove('estilo-normal', 'estilo-pixel', 'estilo-neon', 'estilo-pintura');
+      
+      if (estilo !== 'normal') {
+        reloj.classList.add(`estilo-${estilo}`);
+      }
+    }
+
+    // Actualizar panel de información
+    function actualizarPanelInformacion() {
+      const ahora = new Date();
+      const horaActual = ahora.getHours();
+      const minutoActualNum = ahora.getMinutes();
+      const indiceTecnologia = horaActual % 12;
+      
+      const tecnologia = categorias[categoriaActual][indiceTecnologia];
+      
+      panelIcono.className = `panel-icono ${tecnologia.class}`;
+      panelIcono.style.color = tecnologia.color;
+      panelTitulo.textContent = tecnologia.nombre;
+      
+      datosActuales = tecnologia.datos;
+      indiceDatoActual = minutoActualNum;
+      
+      mostrarDatoActual();
+      
+      minutoActual.textContent = `Minuto: ${minutoActualNum}`;
+      
+      clearInterval(intervaloDatos);
+      intervaloDatos = setInterval(cambiarDatoPorMinuto, 60000);
+      
+      const proximaHora = (horaActual + 1) % 12 || 12;
+      const proximaTecnologia = categorias[categoriaActual][(indiceTecnologia + 1) % 12].nombre;
+      proximoDato.textContent = `Próximo: ${proximaTecnologia} a las ${proximaHora}:00`;
+    }
+
+    // Mostrar dato actual
+    function mostrarDatoActual() {
+      const dato = datosActuales[indiceDatoActual];
+      
+      panelContenido.innerHTML = '';
+      
+      const datoElement = document.createElement('div');
+      datoElement.className = 'dato-item';
+      datoElement.innerHTML = `
+        <div class="dato-titulo">${dato.titulo}</div>
+        <div class="dato-descripcion">${dato.descripcion}</div>
+      `;
+      
+      panelContenido.appendChild(datoElement);
+    }
+
+    // Cambiar dato por minuto
+    function cambiarDatoPorMinuto() {
+      const ahora = new Date();
+      const minutoActualNum = ahora.getMinutes();
+      
+      indiceDatoActual = minutoActualNum;
+      mostrarDatoActual();
+      
+      minutoActual.textContent = `Minuto: ${minutoActualNum}`;
+    }
+
+    // Formatear hora según preferencia
+    function formatearHora(hora, minuto, segundo) {
+      if (is24HourFormat) {
+        return `${String(hora).padStart(2,'0')}:${String(minuto).padStart(2,'0')}:${String(segundo).padStart(2,'0')}`;
+      } else {
+        let periodo = 'AM';
+        let hora12 = hora;
+        
+        if (hora === 0) {
+          hora12 = 12;
+        } else if (hora === 12) {
+          periodo = 'PM';
+        } else if (hora > 12) {
+          hora12 = hora - 12;
+          periodo = 'PM';
+        }
+        
+        return `${String(hora12).padStart(2,'0')}:${String(minuto).padStart(2,'0')}:${String(segundo).padStart(2,'0')} ${periodo}`;
+      }
+    }
+
+    // Actualizar reloj
+    function actualizarReloj() {
+      const ahora = new Date();
+      const h = ahora.getHours();
+      const m = ahora.getMinutes();
+      const s = ahora.getSeconds();
+      
+      digital.textContent = formatearHora(h, m, s);
+      
+      document.getElementById('hora').style.transform = `translateX(-50%) rotate(${(h % 12) * 30 + m * 0.5}deg)`;
+      document.getElementById('minuto').style.transform = `translateX(-50%) rotate(${m * 6}deg)`;
+      document.getElementById('segundo').style.transform = `translateX(-50%) rotate(${s * 6}deg)`;
+      
+      if (s === 0) {
+        actualizarPanelInformacion();
+      }
+    }
+
+    // Event listeners
+    selectorCategoria.addEventListener('change', (e) => {
+      crearLogos(e.target.value);
+    });
+
+    selectorEstilo.addEventListener('change', (e) => {
+      cambiarEstilo(e.target.value);
+    });
+
+    window.addEventListener('resize', () => {
+      crearMarcas();
+      crearLogos(categoriaActual);
+    });
+
+    // Inicializar
+    cargarPreferencias();
+    crearMarcas();
+    crearLogos('programacion');
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+  </script>
+</body>
+</html>
