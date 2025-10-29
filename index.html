@@ -44,6 +44,10 @@
       --marca-color: #777;
       --marca-grande-color: #ccc;
       --numero-color: #ccc;
+      --digital-color: #00ffcc;
+      --digital-bg: rgba(0,0,0,0.6);
+      --digital-border: #00ffcc;
+      --decoracion-color: #fff;
       --panel-bg: rgba(0, 0, 0, 0.85);
       --panel-text: #ffffff;
       --footer-gradient-start: #1c1c1c;
@@ -58,7 +62,7 @@
       --header-text: #333;
     }
 
-    /* Modo oscuro */
+    /* Modo oscuro - CAMBIOS AQUÍ */
     body.dark-mode {
       --bg-gradient-start: #1a1a1a;
       --bg-gradient-end: #0a0a0a;
@@ -67,11 +71,17 @@
       --marco-gradient-1: #2a2a2a;
       --marco-gradient-2: #1a1a1a;
       --marco-border: #333333;
-      --reloj-gradient-start: #0a0a0a;
-      --reloj-gradient-end: #000000;
-      --marca-color: #555;
-      --marca-grande-color: #888;
-      --numero-color: #aaa;
+      /* NUEVO: Reloj blanco en modo oscuro */
+      --reloj-gradient-start: #ffffff;
+      --reloj-gradient-end: #f0f0f0;
+      --marca-color: #333;
+      --marca-grande-color: #555;
+      --numero-color: #222;
+      --digital-color: #0066cc;
+      --digital-bg: rgba(255,255,255,0.9);
+      --digital-border: #0066cc;
+      --decoracion-color: #222;
+      /* Fin de cambios del reloj */
       --panel-bg: rgba(20, 20, 20, 0.95);
       --panel-text: #e0e0e0;
       --footer-gradient-start: #0a0a0a;
@@ -96,7 +106,7 @@
       font-family: 'Segoe UI', sans-serif;
       padding: 20px;
       padding-top: 100px;
-      padding-bottom: 80px;
+      padding-bottom: 20px;
       transition: background 0.3s ease;
     }
 
@@ -331,7 +341,7 @@
       position: relative;
       border-radius: 50%;
       background: radial-gradient(circle at center, var(--reloj-gradient-start) 0%, var(--reloj-gradient-end) 100%);
-      box-shadow: inset 0 0 15px rgba(255,255,255,0.1), 0 0 25px rgba(0,0,0,0.6);
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.1), 0 0 25px rgba(0,0,0,0.6);
       transition: all 0.3s ease;
     }
 
@@ -382,7 +392,7 @@
       border-radius: 50%;
       transform: translate(-50%, -50%);
       z-index: 30;
-      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     .digital-container {
@@ -397,25 +407,27 @@
     }
 
     .decoracion {
-      color: #fff;
+      color: var(--decoracion-color);
       font-size: 22px;
       font-weight: bold;
       font-family: 'Courier New', monospace;
-      text-shadow: 0 0 5px rgba(255,255,255,0.5);
+      text-shadow: 0 0 5px rgba(0,0,0,0.3);
+      transition: color 0.3s ease;
     }
 
     #digital {
-      color: #00ffcc;
+      color: var(--digital-color);
       font-size: 18px;
       font-weight: bold;
       font-family: 'Courier New', monospace;
-      text-shadow: 0 0 8px rgba(0,255,204,0.7);
-      background: rgba(0,0,0,0.6);
+      text-shadow: 0 0 8px var(--digital-color);
+      background: var(--digital-bg);
       padding: 8px 15px;
       border-radius: 8px;
-      border: 1px solid #00ffcc;
+      border: 1px solid var(--digital-border);
       min-width: 100px;
       text-align: center;
+      transition: all 0.3s ease;
     }
 
     .icono {
@@ -423,7 +435,7 @@
       font-size: 22px;
       transform: translate(-50%, -50%);
       pointer-events: none;
-      text-shadow: 0 0 5px rgba(255,255,255,0.3);
+      text-shadow: 0 0 5px rgba(0,0,0,0.2);
       z-index: 5;
       transition: all 0.3s ease;
     }
@@ -448,6 +460,7 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       border: 1px solid rgba(255,255,255,0.1);
       margin-top: 10px;
+      margin-bottom: 30px;
       transition: all 0.3s ease;
     }
 
@@ -518,10 +531,11 @@
       transform: translateX(-50%);
       font-size: 10px;
       color: #4CAF50;
-      background: rgba(0,0,0,0.5);
+      background: var(--digital-bg);
       padding: 2px 6px;
       border-radius: 3px;
       z-index: 5;
+      transition: all 0.3s ease;
     }
 
     /* Media queries mejoradas para dispositivos móviles */
@@ -529,7 +543,7 @@
       body {
         padding: 10px;
         padding-top: 80px;
-        padding-bottom: 70px;
+        padding-bottom: 20px;
       }
 
       .controles {
@@ -641,6 +655,7 @@
         width: 100%;
         max-width: 320px;
         padding: 15px;
+        margin-bottom: 20px;
       }
 
       .panel-icono {
@@ -733,7 +748,6 @@
         padding: 2px 5px !important;
         min-width: 55px !important;
         border-radius: 4px;
-        background: rgba(0,0,0,0.7);
       }
 
       .icono {
@@ -747,6 +761,7 @@
       .panel-info {
         max-width: 280px;
         padding: 12px;
+        margin-bottom: 15px;
       }
 
       .panel-icono {
@@ -778,8 +793,7 @@
 
     /* Footer */
     .footer {
-      position: fixed;
-      bottom: 0;
+      position: relative;
       left: 0;
       right: 0;
       background: linear-gradient(135deg, var(--footer-gradient-start) 0%, var(--footer-gradient-end) 100%);
@@ -791,6 +805,8 @@
       z-index: 100;
       font-size: 12px;
       transition: all 0.3s ease;
+      margin-top: 30px;
+      width: 100%;
     }
 
     .footer-content {
